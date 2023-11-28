@@ -100,20 +100,19 @@ router
 
 		try {
 			const ref = realtime.ref("players");
-			const snapshot = await ref.orderByChild("device/id").get();
+			const snapshot = await ref.child(syncData.device.id).get();
 
 			if (snapshot.exists() && snapshot.toJSON()) {
-				const docs = snapshot.toJSON() as { [x: string]: SyncData };
-				const data = docs[Object.keys(docs)[0]];
+				const data = snapshot.toJSON() as SyncData;
 
 				// @ts-ignore
 				delete syncData.id;
-				await ref.child(data.id).set({
+				await ref.child(data.device.id).set({
 					...data,
 					...syncData,
 				});
 			} else {
-				await ref.child(syncData.id).set(syncData);
+				await ref.child(syncData.device.id).set(syncData);
 			}
 
 			return res.status(200).json({

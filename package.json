@@ -2,7 +2,7 @@
 	"name": "musync-server",
 	"description": "Sincronize suas músicas entre dispositivos e serviços.",
 	"author": "Gepetojj <contato.gepetojj@gmail.com>",
-	"version": "0.1.0",
+	"version": "0.1.2",
 	"license": "MIT",
 	"scripts": {
 		"dev": "next dev",
