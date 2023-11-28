@@ -1,0 +1,11 @@
+node_modules/
+build/
+.yarn/
+.next/
+out/
+
+.env
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+musync-sa.json
